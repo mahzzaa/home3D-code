@@ -1,4 +1,4 @@
-export default class Sizes {
+export default class Time {
     constructor() {
       this.start =Date.now();
       this.current =  this.start;
@@ -14,7 +14,7 @@ export default class Sizes {
         this.current = currentTime;
         this.elapsed = this.current - this.start;
         console.log(this.delta);
-        window.requestAnimationFrame(()=> this.update);
+        window.requestAnimationFrame(()=> this.update());
 
     }
 }

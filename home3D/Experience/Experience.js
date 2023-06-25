@@ -2,6 +2,7 @@ import * as THREE from "three"
 import Sizes from "./Utils/Sizes"
 import Camera from "./Camera"
 import Renderer from "./Renderer"
+import Time from "./Utils/Time"
 
 
 export default class Experience {
@@ -16,6 +17,7 @@ export default class Experience {
         this.sizes = new Sizes();
         this.camera = new Camera();
         this.renderer = new Renderer();
+        this.time = new Time();
 
     }
 }
