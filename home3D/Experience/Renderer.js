@@ -34,6 +34,6 @@ export default class Renderer {
     }
 
     update() {
-        this.renderer.render(this.scene,this.camera.PerspectiveCamera)
+        this.renderer.render(this.scene, this.camera.orthographicCamera);
     }
 }

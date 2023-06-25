@@ -18,6 +18,14 @@ export default class Experience {
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.time = new Time();
+        this.time.on("update", ()=>{
+            this.update();
+        });
 
+    }
+
+    update(){
+        this.camera.update();
+        this.renderer.update();
     }
 }
