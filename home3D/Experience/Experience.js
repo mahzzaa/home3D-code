@@ -8,7 +8,7 @@ import Time from "./Utils/Time"
 export default class Experience {
     static instance
     constructor(canvas) {
-        if(Experience.instance){
+        if (Experience.instance) {
             return Experience.instance
         }
         Experience.instance = this
@@ -18,14 +18,29 @@ export default class Experience {
         this.camera = new Camera();
         this.renderer = new Renderer();
         this.time = new Time();
-        this.time.on("update", ()=>{
+
+        this.sizes.on("resize", () => {
+            this.resize();
+        });
+
+
+        this.time.on("update", () => {
             this.update();
         });
 
+
+
     }
 
-    update(){
+    resize() {
+        this.camera.resize();
+        this.renderer.resize();
+    }
+
+    update() {
         this.camera.update();
         this.renderer.update();
     }
+
+
 }
