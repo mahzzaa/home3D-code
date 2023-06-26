@@ -13,16 +13,27 @@ export default class Camera {
     }
 
     createPerspectiveCamera() {
-        this.perspectiveCamera = new THREE.PerspectiveCamera(35, this.sizes.aspect, 0.1, 1000);
-        this.scene.add(this.perspectiveCamera)
+        this.perspectiveCamera = new THREE.PerspectiveCamera(
+            35,
+            this.sizes.aspect,
+            0.1,
+            1000
+        );
+        this.scene.add(this.perspectiveCamera);
+        this.perspectiveCamera.position.z =5;
     }
 
     createOrthographicCamera() {
         this.frustrum = 5;
-        this.orthographicCamera = new THREE.OrthographicCamera((-this.sizes.aspect * this.sizes.frustrum) / 2,
-            (this.sizes.aspect * this.sizes.frustrum) / 2, this.sizes.frustrum / 2, -this.sizes.frustrum / 2, -100, 100
+        this.orthographicCamera = new THREE.OrthographicCamera(
+            (-this.sizes.aspect * this.sizes.frustrum) / 2,
+            (this.sizes.aspect * this.sizes.frustrum) / 2,
+            this.sizes.frustrum / 2,
+            -this.sizes.frustrum / 2,
+            -50,
+            50
         );
-        this.scene.add(this.orthographicCamera)
+        this.scene.add(this.orthographicCamera);
     }
 
     resize() {
