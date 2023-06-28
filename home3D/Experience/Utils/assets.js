@@ -2,7 +2,7 @@ export default[
     {
         name:"room",
         type: "glbModel",
-        path: "/models/my3DRoom.glb"
+        path: "/models/home3DFinal.glb"
     },
 
     {
