@@ -46,8 +46,11 @@ export default class Room {
     }
 
     update() {
-        this.curve.getPointAt(this.progress, this.dummyVector);
-        this.progress += 0.001;
+        this.curve.getPointAt(this.progress % 1, this.dummyVector);
+        this.progress -= 0.01;
+        if(this.progress<0){
+            this.progress = 1;
+        }
         this.camera.orthographicCamera.position.copy(this.dummyVector);
     }
 }
