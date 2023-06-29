@@ -53,7 +53,6 @@ export default class Room {
         this.mixer = new THREE.AnimationMixer(this.actualRoom);
         this.swim1 =  this.mixer.clipAction(this.room.animations[183]);
         this.swim2 =  this.mixer.clipAction(this.room.animations[185]);
-        console.log(this.room);
         this.swim1.play();
         this.swim2.play();
 
