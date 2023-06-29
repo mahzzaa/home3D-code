@@ -18,8 +18,14 @@ export default class Room {
             new THREE.Vector3( 0, 0, 0 ),
             new THREE.Vector3( 5, -5, 5 ),
             new THREE.Vector3( 10, 0, 10 )
-        ] );
+        ], true );
         
+
+        this.dummyVector = new THREE.Vector3(0,0,0);
+        this.curve.getPointAt(0 , this.dummyVector);
+        console.log(this.dummyVector);
+
+
         const points = this.curve.getPoints( 50 );
         const geometry = new THREE.BufferGeometry().setFromPoints( points );
         
