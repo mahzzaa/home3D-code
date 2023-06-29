@@ -79,8 +79,6 @@ export default class Camera {
         this.helper.matrixWorldNeedsUpdate = true;
         this.helper.update();
         this.helper.position.copy(this.orthographicCamera.position);
-        this.helper.rotation.copy(this.orthographicCamera.position);
-
-
+        this.helper.rotation.copy(this.orthographicCamera.rotation);
     }
 }
