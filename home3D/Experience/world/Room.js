@@ -24,6 +24,18 @@ export default class Room {
                     groupChild.receiveShadow = true;
                 })
             }
+
+            if(child.name === "water"){
+                child.material = new THREE.MeshPhysicalMaterial();
+                child.material.roughness = 0;
+                child.material.color.set(0x549dd2);
+                child.material.ior = 3;
+                child.material.transmission = 1;
+                child.material.opacity = 0.5;
+                
+            }
+
+            
         });
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.111, 0.11);
