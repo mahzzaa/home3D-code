@@ -17,7 +17,7 @@ export default class Renderer {
       antialias: true,
     });
 
-    this.renderer.outputEncoding = THREE.sRGBEncoding; // Use outputColorSpace instead of outputEncoding
+    this.renderer.outputColorSpace = THREE.SRGBColorSpace; // Use outputColorSpace instead of outputEncoding
 
     this.renderer.toneMapping = THREE.CineonToneMapping;
     this.renderer.toneMappingExposure = 1.75;
