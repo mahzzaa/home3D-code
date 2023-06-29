@@ -35,7 +35,13 @@ export default class Room {
                 
             }
 
-            
+            if(child.name === "screen"){
+                child.material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen,
+                });
+                
+
+            }
         });
         this.scene.add(this.actualRoom);
         this.actualRoom.scale.set(0.11, 0.111, 0.11);
