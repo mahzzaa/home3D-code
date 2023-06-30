@@ -13,6 +13,7 @@ export default class Room {
         this.dummyVector = new THREE.Vector3(0, 0, 0);
 
         this.setPath();
+        this.onWheel();
     }
 
     setPath() {
@@ -41,16 +42,28 @@ export default class Room {
 
     }
 
+    onWheel(){
+        window.addEventListener("wheel",(e)=>{
+            console.log(e);
+            if(e.deltaY>0){
+                this.progress+= 0.1;
+            }else{
+                this.progress -= 0.1;
+                if(this.progress<0){
+                    this.progress = 1;
+                }
+            }
+        });
+    }
+
     resize() {
 
     }
 
     update() {
         this.curve.getPointAt(this.progress % 1, this.dummyVector);
-        this.progress -= 0.01;
-        if(this.progress<0){
-            this.progress = 1;
-        }
+        // this.progress -= 0.01;
+       
         this.camera.orthographicCamera.position.copy(this.dummyVector);
     }
 }
