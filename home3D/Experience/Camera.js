@@ -24,21 +24,30 @@ export default class Camera {
         );
 
         this.scene.add(this.perspectiveCamera);
-        this.perspectiveCamera.position.z = 10.691022930022264;
-        this.perspectiveCamera.position.x = 0.031929667321536265;
-        this.perspectiveCamera.position.y = 6.907137703592322;
+        this.perspectiveCamera.position.x = 29;
+        this.perspectiveCamera.position.y = 14;
+        this.perspectiveCamera.position.z = 12;
+
 
     }
 
     createOrthographicCamera() {
-        this.orthographicCamera = new THREE.OrthographicCamera(
-            (-this.sizes.aspect * this.sizes.frustrum) / 2,
-            (this.sizes.aspect * this.sizes.frustrum) / 2,
-            this.sizes.frustrum / 2,
-            -this.sizes.frustrum / 2,
-            -10,
-            10
+        // this.orthographicCamera = new THREE.OrthographicCamera(
+        //     (-this.sizes.aspect * this.sizes.frustrum) / 2,
+        //     (this.sizes.aspect * this.sizes.frustrum) / 2,
+        //     this.sizes.frustrum / 2,
+        //     -this.sizes.frustrum / 2,
+        //     -10,
+        //     10
+        // );
+
+          this.orthographicCamera = new THREE.PerspectiveCamera(
+            35,
+            this.sizes.aspect,
+            0.1,
+            1000
         );
+
         this.scene.add(this.orthographicCamera);
 
         this.helper = new THREE.CameraHelper(this.orthographicCamera);
