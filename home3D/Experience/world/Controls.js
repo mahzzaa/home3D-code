@@ -1,5 +1,6 @@
 import Experience from "../Experience";
 import * as THREE from "three"
+import { gsap } from "gsap";
 
 export default class Room {
     constructor() {
@@ -11,6 +12,15 @@ export default class Room {
 
         this.progress = 0;
         this.dummyVector = new THREE.Vector3(0, 0, 0);
+
+
+        this.lerp={
+            current:0,
+            target:0,
+            ease:0.1
+        }
+
+        this.position = new THREE.Vector3(0,0,0);
 
         this.setPath();
         this.onWheel();
@@ -46,12 +56,10 @@ export default class Room {
         window.addEventListener("wheel",(e)=>{
             console.log(e);
             if(e.deltaY>0){
-                this.progress+= 0.1;
+                this.lerp.target+= 0.01;
             }else{
-                this.progress -= 0.1;
-                if(this.progress<0){
-                    this.progress = 1;
-                }
+                this.lerp.target -= 0.01;
+            
             }
         });
     }
@@ -61,9 +69,17 @@ export default class Room {
     }
 
     update() {
-        this.curve.getPointAt(this.progress % 1, this.dummyVector);
-        // this.progress -= 0.01;
-       
-        this.camera.orthographicCamera.position.copy(this.dummyVector);
+        this.lerp.current = gsap.utils.interpolate(
+            this.lerp.current,
+            this.lerp.target,
+            this.lerp.ease
+        );
+
+        this.lerp.target += 0.001;
+        this.lerp.target = gsap.utils.clamp(0,1,this.lerp.target);
+        this.lerp.current = gsap.utils.clamp(0,1,this.lerp.current);
+
+        this.curve.getPointAt(this.lerp.current, this.position);
+        this.camera.orthographicCamera.position.copy(this.position);
     }
 }
