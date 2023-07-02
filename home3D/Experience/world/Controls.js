@@ -23,6 +23,11 @@ export default class Room {
         this.position = new THREE.Vector3(0,0,0);
         this.lookAtPosition = new THREE.Vector3(0,0,0);
 
+        this.directionalVector = new THREE.Vector3(0,0,0);
+        this.staticVector = new THREE.Vector3(0,1,0);
+        this.crossVector = new THREE.Vector3(0,0,0);
+
+
 
         this.setPath();
         this.onWheel();
@@ -34,7 +39,9 @@ export default class Room {
             new THREE.Vector3(0, 0, -5),
             new THREE.Vector3(5, 0, 0),
             new THREE.Vector3(0, 0, 5)
-        ], true);
+        ], 
+            true
+        );
 
 
         this.curve.getPointAt(this.progress, this.dummyVector);
