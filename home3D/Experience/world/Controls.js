@@ -21,6 +21,8 @@ export default class Room {
         }
 
         this.position = new THREE.Vector3(0,0,0);
+        this.lookAtPosition = new THREE.Vector3(0,0,0);
+
 
         this.setPath();
         this.onWheel();
@@ -88,7 +90,9 @@ export default class Room {
         this.lerp.target = gsap.utils.clamp(0,1,this.lerp.target);
         this.lerp.current = gsap.utils.clamp(0,1,this.lerp.current);
 
-        this.curve.getPointAt(this.lerp.current, this.position);
+        this.curve.getPointAt(this.lerp.current + 0.00001, this.lookAtPosition);
+
         this.camera.orthographicCamera.position.copy(this.position);
+        this.camera.orthographicCamera.lookAt(this.lookAtPosition);
     }
 }
