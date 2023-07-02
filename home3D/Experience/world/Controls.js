@@ -36,11 +36,12 @@ export default class Room {
     setPath() {
         this.curve = new THREE.CatmullRomCurve3([
             new THREE.Vector3(-5, 0, 0),
-            new THREE.Vector3(7, 0, -5),
-            new THREE.Vector3(5, 4, 0),
-            new THREE.Vector3(0, 0, 5),
-            new THREE.Vector3(8, 0, 15),
-            new THREE.Vector3(6, 10, 5)
+            new THREE.Vector3(0, 0, -5),
+            new THREE.Vector3(5, 12, 0),
+            new THREE.Vector3(0, 5, 5),
+            new THREE.Vector3(15,0, 5),
+            new THREE.Vector3(0, 5, 5),
+            new THREE.Vector3(12,6, 5)
         ],
             true
         );
@@ -103,7 +104,7 @@ export default class Room {
         );
         
         // this.crossVector.multiplyScalar(100000);
-        this.camera.orthographicCamera.lookAt(this.crossVector);
+        this.camera.orthographicCamera.lookAt(0,0,0);
     }
 
 }
