@@ -10,14 +10,6 @@ export default class Room {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
 
-
-
-        this.lerp = {
-            current: 0,
-            target: 0,
-            ease: 0.1
-        }
-
     }
 
 
@@ -26,11 +18,6 @@ export default class Room {
     }
 
     update() {
-        this.lerp.current = gsap.utils.interpolate(
-            this.lerp.current,
-            this.lerp.target,
-            this.lerp.ease
-        );
 
         }
 
