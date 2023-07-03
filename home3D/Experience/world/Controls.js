@@ -10,6 +10,8 @@ export default class Room {
         this.time = this.experience.time;
         this.camera = this.experience.camera;
 
+
+
         this.lerp = {
             current: 0,
             target: 0,
@@ -18,8 +20,6 @@ export default class Room {
 
     }
 
-
- 
 
     resize() {
 
@@ -32,6 +32,6 @@ export default class Room {
             this.lerp.ease
         );
 
-       
+        }
 
 }
